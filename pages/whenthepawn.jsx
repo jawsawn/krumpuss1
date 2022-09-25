@@ -3,12 +3,11 @@ import { useState, useEffect } from "react";
 export default function WhenThePawn() {
     const [word, setword] = useState();
     const generate = () => {
-        fetch('https://api.api-ninjas.com/v1/randomword', {
+        fetch('https://api.api-ninjas.com/v1/randomword?type=noun', {
             method: "GET",
             headers: {
                 "X-Api-Key": "0TbXBklDknADIYd0p5YcQA==PeH2tTMTvY4se5ma"
-            },
-            type: "noun"
+            }
         })
             .then((response) => response.json())
             .then((data) => setword(data.word));
