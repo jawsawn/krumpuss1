@@ -107,3 +107,8 @@ body {
     text-decoration: underline;
   }
 
+.secret p {
+    color: hotpink;
+    margin: 0;
+    display: inline;
+}
