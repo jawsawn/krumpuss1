@@ -2,7 +2,7 @@ body {
     margin: 0;
 }
 
-.main, .main1{
+.main, .main1, .main2{
 
     background-color: maroon;
     min-height: 100vh;
@@ -20,6 +20,14 @@ body {
     background-image: url("../public/whenthepawn.png");
 }
 
+.main2 {
+    background-image: url("../public/eosd.png");
+    font-family: 'Revue', arial;
+}
+
+#text_eosd {
+    font-family: 'Revue', arial;
+}
 
 .content_wrapper {
     display: flex;
@@ -28,7 +36,7 @@ body {
 }
 
 
-.generated_content {
+.generated_content{
     background-color: rgb(173, 99, 99);
     opacity: 0.8;
     border-radius: 1rem;
@@ -39,6 +47,7 @@ body {
     font-family:'Trebuchet MS';
     color: beige;
 }
+
 
 
 .generated_content button {
@@ -58,7 +67,7 @@ body {
     color: hotpink;
 }
 
-.top_ones_content {
+.top_ones_content{
     opacity: 0.8;
     margin-left: auto;
     background-color: rgb(173, 99, 99);
@@ -97,3 +106,4 @@ body {
     color: hotpink;
     text-decoration: underline;
   }
+

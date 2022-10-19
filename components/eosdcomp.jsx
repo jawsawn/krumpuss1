@@ -51,14 +51,14 @@ export default function EOSD() {
     return (
         <div className="content_wrapper">
                 <div className="generated_content">
-                    <div className="text">"Embodiment of {adj} {noun}"</div>
+                    <div id="text_eosd">"Embodiment of {adj} {noun}"</div>
                     <button onClick={addToDatabase} className="add_button">save</button>
                     <button onClick={generate} className="new_button">new</button>
                 </div>
 
                 <div className="top_ones_content">
-                    <div style={{textDecoration: "underline"}}>10 Recent Devils</div>
-                    {list.map((e, index) => <div className="top_text">{(index+1) + ". " + '"' + e + '"'}</div>)}
+                    <div style={{textDecoration: "underline"}} id="text_eosd">10 Recent Devils</div>
+                    {list.map((e, index) => <div className="top_text" id="text_eosd">{(index+1) + ". " + '"' + e + '"'}</div>)}
                 </div>
         </div>
     )
