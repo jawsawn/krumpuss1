@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+}
+
+.main, .main1{
+
+    background-color: maroon;
+    min-height: 100vh;
+    max-height: 100%;
+    padding: 2vh;
+    box-sizing: border-box;
+    background-image: url("../public/rupikaur.png");
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    
+}
+
+.main1{
+    background-image: url("../public/whenthepawn.png");
+}
+
+
+.content_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 2vh;
+}
+
+
+.generated_content {
+    background-color: rgb(173, 99, 99);
+    opacity: 0.8;
+    border-radius: 1rem;
+    height: fit-content;
+    width: fit-content;
+    padding: 0.5em;
+    font-size: min(10vw,3rem);
+    font-family:'Trebuchet MS';
+    color: beige;
+}
+
+
+.generated_content button {
+    border: none;
+    background-color: rgb(168, 70, 70);
+    border-radius: 1rem;
+    height: 2rem;
+    width: 4rem;
+    font-size: 1rem;
+    font-family:'Trebuchet MS';
+    color: beige;
+    margin-right: 1rem;
+}
+
+.generated_content button:hover {
+    background-color: rgb(170, 51, 51);
+    color: hotpink;
+}
+
+.top_ones_content {
+    opacity: 0.8;
+    margin-left: auto;
+    background-color: rgb(173, 99, 99);
+    border-radius: 1rem;
+    height: fit-content;
+    min-height: 0;
+    width: fit-content;
+    min-width: 0;
+    padding: 2vh;
+    font-size: min(10vw,3rem);
+    font-family:'Trebuchet MS';
+    color: beige;
+}
+
+.links_content {
+    margin-top: auto;
+    opacity: 0.8;
+    background-color: rgb(173, 99, 99);
+    border-radius: 1rem;
+    height: fit-content;
+    width: fit-content;
+    padding: 1rem;
+    font-size: 1rem;
+    font-family:'Trebuchet MS';
+    color: beige;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    display: flex;
+    gap: 1rem;
+}
+
+.links_content a {
+    text-decoration: none;
+    color: beige;
+}
+.links_content a:hover {
+    color: hotpink;
+    text-decoration: underline;
+  }

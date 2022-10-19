@@ -1,0 +1,11 @@
+.main{
+    background-image: url("../public/eosd.png");
+    background-color: maroon;
+    min-height: 100vh;
+    max-height: 100%;
+    padding: 2vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
