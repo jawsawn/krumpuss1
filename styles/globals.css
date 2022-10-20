@@ -1,28 +1,29 @@
 body {
     margin: 0;
+    background-color: brown;
 }
 
-.main, .main1, .main2{
-
-    background-color: maroon;
-    min-height: 100vh;
-    max-height: 100%;
-    padding: 2vh;
+.main{
+    padding: 1em 1em 1em 1em;
     box-sizing: border-box;
-    background-image: url("../public/rupikaur.png");
     display: flex;
     flex-direction: column;
-    gap: 2vh;
+    min-height: 100vh;
+    gap: 1em;
+    justify-content: space-between;
+    
     
 }
+.rupikaur{
+background-image: url("../public/rupikaur.png");
+}
 
-.main1{
+.whenthepawn{
     background-image: url("../public/whenthepawn.png");
 }
 
-.main2 {
+.eosd {
     background-image: url("../public/eosd.png");
-    font-family: 'Revue', arial;
 }
 
 #text_eosd {
@@ -32,34 +33,32 @@ body {
 .content_wrapper {
     display: flex;
     flex-wrap: wrap;
-    row-gap: 2vh;
+    row-gap: 1em;
 }
 
 
 .generated_content{
     background-color: rgb(173, 99, 99);
     opacity: 0.8;
-    border-radius: 1rem;
-    height: fit-content;
-    width: fit-content;
+    border-radius: 0.5em;
+    height: 100%;
     padding: 0.5em;
-    font-size: min(10vw,3rem);
+    font-size: min(8vw, 3rem);
     font-family:'Trebuchet MS';
     color: beige;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
-
-
 
 .generated_content button {
     border: none;
     background-color: rgb(168, 70, 70);
     border-radius: 1rem;
-    height: 2rem;
-    width: 4rem;
+    height: 2em;
+    width: 4em;
     font-size: 1rem;
     font-family:'Trebuchet MS';
     color: beige;
-    margin-right: 1rem;
+    margin-right: 1em;
 }
 
 .generated_content button:hover {
@@ -70,16 +69,15 @@ body {
 .top_ones_content{
     opacity: 0.8;
     margin-left: auto;
+    margin-bottom: auto;
     background-color: rgb(173, 99, 99);
     border-radius: 1rem;
-    height: fit-content;
-    min-height: 0;
-    width: fit-content;
-    min-width: 0;
-    padding: 2vh;
-    font-size: min(10vw,3rem);
+    height: 100%;
+    padding: 0.5em;
+    font-size: min(8vw,3rem);
     font-family:'Trebuchet MS';
     color: beige;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .links_content {
@@ -87,15 +85,16 @@ body {
     opacity: 0.8;
     background-color: rgb(173, 99, 99);
     border-radius: 1rem;
-    height: fit-content;
-    width: fit-content;
-    padding: 1rem;
+    padding: 0.5em;
     font-size: 1rem;
     font-family:'Trebuchet MS';
     color: beige;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     display: flex;
-    gap: 1rem;
+    
+    width: 27em;
+    justify-content: space-around;
+    place-items: center;
 }
 
 .links_content a {
@@ -112,3 +111,18 @@ body {
     margin: 0;
     display: inline;
 }
+
+@media (max-width: 700px) {
+    /* For mobile phones: */
+    .generated_content {
+        width: 100vw;
+    }
+    .top_ones_content {
+        width: 100vw;
+    }
+    .links_content {
+        width: auto;
+        margin-top: 0;
+    }
+    
+  }

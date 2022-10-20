@@ -2,10 +2,10 @@ import RipTheSlit from "../components/riptheslit"
 import Links from "../components/links"
 
 
-export default function Home() {
+export default function Page_riptheslit() {
 
   return (
-    <div className="main">
+    <div className="main rupikaur">
       <RipTheSlit />
       <Links />
     </div>

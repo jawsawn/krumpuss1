@@ -57,7 +57,7 @@ export default function WhenThePawn() {
 
                 <div className="top_ones_content">
                     <div style={{textDecoration: "underline"}}>10 Recent Pawns</div>
-                    {list.map((e, index) => <div className="top_text">{(index+1) + ". " + '"' + e + '"'}</div>)}
+                    {list.map((e, index) => <div className="top_text" key={index}>{(index+1) + ". " + '"' + e + '"'}</div>)}
                 </div>
         </div>
     )

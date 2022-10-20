@@ -1,13 +1,12 @@
 import EOSD from "../components/eosdcomp"
 import Links from "../components/links"
-import styles from '../styles/eosd.module.css'
 
 
 
-export default function Home3() {
+export default function Page_eosd() {
 
   return (
-    <div className="main2">
+    <div className="main eosd">
       <EOSD />
       <Links />
     </div>

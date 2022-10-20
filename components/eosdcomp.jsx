@@ -58,7 +58,7 @@ export default function EOSD() {
 
                 <div className="top_ones_content">
                     <div style={{textDecoration: "underline"}} id="text_eosd">10 Recent Devils</div>
-                    {list.map((e, index) => <div className="top_text" id="text_eosd">{(index+1) + ". " + '"' + e + '"'}</div>)}
+                    {list.map((e, index) => <div className="top_text" id="text_eosd" key={index}>{(index+1) + ". " + '"' + e + '"'}</div>)}
                 </div>
         </div>
     )

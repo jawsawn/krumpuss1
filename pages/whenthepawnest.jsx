@@ -30,7 +30,7 @@ export default function Page_whenthepawnest() {
     }
 
     return (
-        <div className="main1">
+        <div className="main whenthepawn">
             <div className="generated_content">
                 <div className="secret">
                     "When the <Noun/> hits the <Noun/> he thinks like a <Noun/><br />
