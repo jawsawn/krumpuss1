@@ -28,6 +28,7 @@ background-image: url("../public/rupikaur.png");
 
 #text_eosd {
     font-family: 'Revue', arial;
+    font-size: 2rem;
 }
 
 .content_wrapper {
