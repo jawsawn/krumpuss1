@@ -5,7 +5,7 @@ import Links from "../components/links"
 export default function Page_riptheslit() {
 
   return (
-    <div className="main rupikaur">
+    <div className="page riptheslit">
       <RipTheSlit />
       <Links />
     </div>

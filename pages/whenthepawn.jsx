@@ -5,7 +5,7 @@ import Links from "../components/links"
 export default function Page_whenthepawn() {
 
   return (
-    <div className="main whenthepawn">
+    <div className="page whenthepawn">
       <WhenThePawn />
       <Links />
     </div>

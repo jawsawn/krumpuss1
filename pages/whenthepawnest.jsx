@@ -25,14 +25,13 @@ export default function Page_whenthepawnest() {
     let increment = 0;
     function Noun() {
         return(
-            <p>{noun[increment++]} </p>
+            <div className="inline pink">{noun[increment++]}</div>
         )
     }
 
     return (
-        <div className="main whenthepawn">
-            <div className="generated_content">
-                <div className="secret">
+        <div className="page whenthepawn">
+            <div className="generated_wrapper title med">
                     "When the <Noun/> hits the <Noun/> he thinks like a <Noun/><br />
                     What he knows <Noun/> the blows when he goes to the <Noun/><br />
                     And hell win the whole <Noun/> 'fore he enters the <Noun/><br />
@@ -40,7 +39,7 @@ export default function Page_whenthepawnest() {
                     So when you go <Noun/>, you hold your own <Noun/><br />
                     And remember that <Noun/> is the greatest of <Noun/><br />
                     And if you know where you <Noun/>, then you know where to <Noun/><br />
-                    And if you <Noun/> it won't matter, cuz you'll know that you're <Noun/>"</div>
+                    And if you <Noun/> it won't matter, cuz you'll know that you're <Noun/>"
             </div>
             <Links />
         </div>

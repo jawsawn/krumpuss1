@@ -6,7 +6,7 @@ import Links from "../components/links"
 export default function Page_eosd() {
 
   return (
-    <div className="main eosd">
+    <div className="page eosd">
       <EOSD />
       <Links />
     </div>

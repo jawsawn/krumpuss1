@@ -1,129 +1,166 @@
-body {
+/* Body defaults */
+* {
+    box-sizing: border-box;
     margin: 0;
+}
+
+/* Page */
+.page {
+    min-height: 100vh;
+    padding: 0.5em;
+    font-family: 'Trebuchet MS';
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+    text-align: center;
     background-color: brown;
 }
 
-.main{
-    padding: 1em 1em 1em 1em;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    gap: 1em;
-    justify-content: space-between;
-    
-    
-}
-.rupikaur{
-background-image: url("../public/rupikaur.png");
+.riptheslit {
+    background-image: url("../public/rupikaur.png");
 }
 
-.whenthepawn{
+.whenthepawn {
     background-image: url("../public/whenthepawn.png");
 }
 
 .eosd {
     background-image: url("../public/eosd.png");
-}
-
-#text_eosd {
     font-family: 'Revue', arial;
-    font-size: 2rem;
 }
 
+/* Comps */
 .content_wrapper {
     display: flex;
-    flex-wrap: wrap;
-    row-gap: 1em;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
 }
 
-
-.generated_content{
+.generated_wrapper,
+.recent_wrapper,
+.links_wrapper {
     background-color: rgb(173, 99, 99);
+    padding: 0.5em;
     opacity: 0.8;
     border-radius: 0.5em;
-    height: 100%;
-    padding: 0.5em;
-    font-size: min(8vw, 3rem);
-    font-family:'Trebuchet MS';
-    color: beige;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    width: max-content;
 }
 
-.generated_content button {
-    border: none;
-    background-color: rgb(168, 70, 70);
-    border-radius: 1rem;
-    height: 2em;
-    width: 4em;
-    font-size: 1rem;
-    font-family:'Trebuchet MS';
-    color: beige;
-    margin-right: 1em;
+.generated_wrapper {
+    margin-top: 10rem;
+    word-break: break-word;
 }
 
-.generated_content button:hover {
-    background-color: rgb(170, 51, 51);
-    color: hotpink;
-}
-
-.top_ones_content{
-    opacity: 0.8;
-    margin-left: auto;
-    margin-bottom: auto;
-    background-color: rgb(173, 99, 99);
-    border-radius: 1rem;
-    height: 100%;
-    padding: 0.5em;
-    font-size: min(8vw,3rem);
-    font-family:'Trebuchet MS';
-    color: beige;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-}
-
-.links_content {
-    margin-top: auto;
-    opacity: 0.8;
-    background-color: rgb(173, 99, 99);
-    border-radius: 1rem;
-    padding: 0.5em;
-    font-size: 1rem;
-    font-family:'Trebuchet MS';
-    color: beige;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+.links_wrapper {
     display: flex;
-    
-    width: 27em;
-    justify-content: space-around;
+    gap: 1em;
     place-items: center;
+    margin-top: auto;
+    height: min-content;
 }
 
-.links_content a {
+.links_wrapper a {
     text-decoration: none;
-    color: beige;
+    color: white;
 }
-.links_content a:hover {
-    color: hotpink;
-    text-decoration: underline;
-  }
 
-.secret p {
-    color: hotpink;
-    margin: 0;
+.maxsized {
+    max-width: 450px;
+}
+
+@media (max-width: 450px) {
+
+    .generated_wrapper,
+    .recent_wrapper,
+    .links_wrapper {
+        width: auto;
+        padding: auto;
+    }
+
+    .generated_wrapper {
+        margin-top: 0;
+    }
+
+    .maxsized {
+        max-width: auto;
+    }
+}
+
+/* Inputs */
+button {
+    background-color: rgb(168, 70, 70);
+    border-radius: 0.5em;
+    font-family: 'Trebuchet MS';
+    color: white;
+    border-color: white;
+    margin: 0.5em;
+    font-size: 1rem;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+button:hover {
+    background-color: rgb(170, 51, 51);
+}
+
+@media (max-width: 450px) {
+
+    button:hover {
+        background-color: rgb(168, 70, 70);
+    }
+}
+
+input {
+    background-color: rgb(168, 70, 70);
+    border-radius: 0.5em;
+    font-family: 'Trebuchet MS';
+    color: white;
+    border-color: white;
+    margin: 0.5em;
+    padding: 0.2em;
+    font-size: 1.5rem;
+    transition-duration: 0.4s;
+}
+
+input:focus {
+    background-color: rgb(170, 51, 51);
+}
+
+.form button {
+    padding: 0.2em;
+    font-size: 1.5rem;
+}
+
+::placeholder {
+    color: white;
+    opacity: 0.5;
+}
+
+.title {
+    font-size: 4rem;
+}
+
+.title.med {
+    font-size: 1.8rem;
+}
+
+@media (max-width: 450px) {
+    .title {
+        font-size: 3rem;
+    }
+
+    .title.med {
+        font-size: 1rem;
+    }
+}
+
+.inline {
     display: inline;
 }
 
-@media (max-width: 700px) {
-    /* For mobile phones: */
-    .generated_content {
-        width: 100vw;
-    }
-    .top_ones_content {
-        width: 100vw;
-    }
-    .links_content {
-        width: auto;
-        margin-top: 0;
-    }
-    
-  }
+.pink {
+    color: hotpink;
+}

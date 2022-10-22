@@ -6,41 +6,36 @@ const DB = collection(db, "whenthepawnDB");
 
 
 export default function WhenThePawn() {
-    const [noun, setNoun] = useState();
-    const [verb, setVerb] = useState();
+    const [noun, setNoun] = useState("...");
     const [list, setList] = useState([]);
 
-    const generate = async () => {
-        //Generate Noun
-        setNoun("______")
-        fetch('https://api.api-ninjas.com/v1/randomword?type=noun', {
-            method: "GET",
-            headers: { "X-Api-Key": "0TbXBklDknADIYd0p5YcQA==PeH2tTMTvY4se5ma" }
-        })
-            .then((response) => response.json())
-            .then((data) => setNoun(data.word.toLowerCase()))
+    async function generate_noun(){
+        return fetch('https://api.api-ninjas.com/v1/randomword?type=noun',
+            {
+                method: "GET",
+                headers: { "X-Api-Key": "0TbXBklDknADIYd0p5YcQA==PeH2tTMTvY4se5ma" }
+            })
+            .then(res => res.json())
+            .then(data => data.word.toLowerCase())
+    }
 
-        //Generate Verb
-        setVerb("______")
-        fetch('https://api.api-ninjas.com/v1/randomword?type=verb', {
-            method: "GET",
-            headers: { "X-Api-Key": "0TbXBklDknADIYd0p5YcQA==PeH2tTMTvY4se5ma" }
-        })
-            .then((response) => response.json())
-            .then((data) => setVerb(data.word.toLowerCase()))
-    };
-
-    const addToDatabase = async () => {
+    async function generate() {
+        setNoun("...")
+        const gen = await generate_noun()
+        setNoun(gen)
+    }
+    
+    async function addToDatabase(){
         const docRef = await addDoc(DB,
             {
-                name: "when" + " the " + noun,
+                name: "when the " + noun,
                 timestamp: Date.now()
             })
     }
 
     //onLoad
-    useEffect(() => {
-        generate()
+    useEffect(async () => {
+        setNoun(await generate_noun());
         const q = query(DB, orderBy("timestamp", "desc"), limit(10));
         onSnapshot(q, (snapshot) => {
             setList(snapshot.docs.map(e => e.data().name))
@@ -49,16 +44,17 @@ export default function WhenThePawn() {
 
     return (
         <div className="content_wrapper">
-                <div className="generated_content">
-                    <div className="text">"when the {noun}"</div>
-                    <button onClick={addToDatabase} className="add_button">save</button>
-                    <button onClick={generate} className="new_button">new</button>
+            <div className="generated_wrapper">
+                <div className="title">"when the {noun}"</div>
+                <div className="button_wrapper">
+                    <button onClick={addToDatabase} >save</button>
+                    <button onClick={generate} >new</button>
                 </div>
-
-                <div className="top_ones_content">
-                    <div style={{textDecoration: "underline"}}>10 Recent Pawns</div>
-                    {list.map((e, index) => <div className="top_text" key={index}>{(index+1) + ". " + '"' + e + '"'}</div>)}
-                </div>
+            </div>
+            <div className="recent_wrapper">
+                <div className="title med" style={{ textDecoration: "underline" }}>10 Recent Pawns</div>
+                <div className="recent_content">{list.map((e, index) => <div className="title med" key={index}>{`${index + 1}. "${e}"`}</div>)}</div>
+            </div>
         </div>
     )
 

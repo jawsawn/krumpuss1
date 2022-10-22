@@ -49,16 +49,17 @@ export default function RipTheSlit() {
 
     return (
         <div className="content_wrapper">
-                <div className="generated_content">
-                    <div className="text">"{verb} the {noun}"</div>
-                    <button onClick={addToDatabase} className="add_button">save</button>
-                    <button onClick={generate} className="new_button">new</button>
+            <div className="generated_wrapper">
+                <div className="title">"{verb} the {noun}"</div>
+                <div className="button_wrapper">
+                    <button onClick={addToDatabase} >save</button>
+                    <button onClick={generate} >new</button>
                 </div>
-
-                <div className="top_ones_content">
-                    <div style={{textDecoration: "underline"}}>10 Recent Rips</div>
-                    {list.map((e, index) => <div className="top_text" key={index}>{(index+1) + ". " + '"' + e + '"'}</div>)}
-                </div>
+            </div>
+            <div className="recent_wrapper">
+                <div className="title med" style={{ textDecoration: "underline" }}>10 Recent Rips</div>
+                <div className="recent_content">{list.map((e, index) => <div className="title med" key={index}>{`"${e}"`}</div>)}</div>
+            </div>
         </div>
     )
 
