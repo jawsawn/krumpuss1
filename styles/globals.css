@@ -47,6 +47,7 @@
     opacity: 0.8;
     border-radius: 0.5em;
     width: max-content;
+    max-width: 100%;
 }
 
 .generated_wrapper {
