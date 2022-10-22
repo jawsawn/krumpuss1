@@ -164,3 +164,11 @@ input:focus {
 .pink {
     color: hotpink;
 }
+
+.breaktext {
+    word-break: break-word;
+}
+
+.whitespace {
+    white-space: pre-line;
+}

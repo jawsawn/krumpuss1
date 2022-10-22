@@ -35,11 +35,11 @@ export default function WhenThePawn() {
 
     //onLoad
     useEffect(async () => {
-        setNoun(await generate_noun());
         const q = query(DB, orderBy("timestamp", "desc"), limit(10));
-        onSnapshot(q, (snapshot) => {
+        onSnapshot(q, snapshot => {
             setList(snapshot.docs.map(e => e.data().name))
         })
+        setNoun(await generate_noun());
     }, []);
 
     return (

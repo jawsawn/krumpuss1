@@ -4,55 +4,62 @@ import Links from "../components/links"
 
 
 export default function Page_whenthepawnest() {
-    const [noun, setNoun] = useState([]);
-    const generate = function () {
-        const wordNoun = fetch('https://api.api-ninjas.com/v1/randomword?type=noun',
+
+    async function generateWord(type = "", opt = "?type=") {
+        const word = await fetch(`https://api.api-ninjas.com/v1/randomword${opt}${type}`,
             {
                 method: "GET",
                 headers: { "X-Api-Key": "0TbXBklDknADIYd0p5YcQA==PeH2tTMTvY4se5ma" }
             })
+            
             .then(res => res.json())
-            .then(data => data.word)
-        wordNoun.then(a => setNoun(noun => [...noun, a]))
+        //.then(data => data.word.toLowerCase())
+        //console.log(word)
+        return word.word.toLowerCase()
     }
 
-    useEffect(() => {
-        for (let i = 0; i < increment; i++) {
-            generate()
+    //onLoad
+    useEffect(async () => {
+        for (let index = 0; index < tempwords.length; index++) {
+            const gen = await generateWord(tempwords[index]);
+            words[index] = setWords(words => [...words, gen]);
         }
     }, []);
 
-    let increment = 0;
-    function Noun() {
-        return(
-            <div className="inline pink">{noun[increment++]}</div>
+    const [words, setWords] = useState([]);
+    let tempwords = [];
+    let wordsIndex = 0;
+    function Word(word) {
+        tempwords.push(word);
+        return (
+            <div className="inline pink">{words[wordsIndex++]}</div>
         )
     }
 
     return (
         <div className="page whenthepawn">
-            <div className="generated_wrapper title med">
-                    "When the <Noun/> hits the <Noun/> he thinks like a <Noun/><br />
-                    What he knows <Noun/> the blows when he goes to the <Noun/><br />
-                    And hell win the whole <Noun/> 'fore he enters the <Noun/><br />
-                    There's no <Noun/> to <Noun/> when your <Noun/> is your <Noun/><br />
-                    So when you go <Noun/>, you hold your own <Noun/><br />
-                    And remember that <Noun/> is the greatest of <Noun/><br />
-                    And if you know where you <Noun/>, then you know where to <Noun/><br />
-                    And if you <Noun/> it won't matter, cuz you'll know that you're <Noun/>"
+            <div className="generated_wrapper">
+                <div className="title med">
+                    When the {Word("noun")} hits the {Word("noun")} he {Word("verb")}s like a {Word("noun")}<br />
+                    What he {Word("verb")}s throws the {Word("verb")}s when he goes to the {Word("noun")}<br />
+                    There's no {Word("noun")} to {Word("verb")} when your {Word("noun")} is your {Word("noun")}<br />
+                    So when you go {Word("noun")}, you hold your own {Word("noun")}<br />
+                    And remember that {Word("noun")} is the greatest of {Word("noun")}s<br />
+                    And if you know where you {Word("verb")}, then you know where to {Word("verb")}<br />
+                    And if you {Word("verb")} it won't matter, cuz you'll know that you're {Word("noun")}<br />
+                    And hell {Word("verb")} the whole thing 'fore he enters the {Word("noun")}<br />
+                </div>
             </div>
             <Links />
         </div>
     )
 }
 
-
-
-`When the pawn hits the conflicts he thinks like a king
-What he knows throws the blows when he goes to the fight
-And hell win the whole thing 'fore he enters the ring
-There's no body to batter when your mind is your might
-So when you go solo, you hold your own hand
-And remember that depth is the greatest of heights
-And if you know where you stand, then you know where to land
-And if you fall it won't matter, cuz you'll know that you're right`
+// `When the pawn hits the conflicts he thinks like a king
+// What he knows throws the blows when he goes to the fight
+// And hell win the whole thing 'fore he enters the ring
+// There's no body to batter when your mind is your might
+// So when you go solo, you hold your own hand
+// And remember that depth is the greatest of heights
+// And if you know where you stand, then you know where to land
+// And if you fall it won't matter, cuz you'll know that you're right`
