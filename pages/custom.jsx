@@ -12,6 +12,7 @@ export default function Page_custom() {
         const docRef = await addDoc(DB,
             {
                 name: output.slice(1),
+                query: input,
                 timestamp: Date.now()
             })
     }
@@ -121,7 +122,7 @@ export default function Page_custom() {
         //Read
         const q = query(DB, orderBy("timestamp", "desc"), limit(10));
         onSnapshot(q, (snapshot) => {
-            setList(snapshot.docs.map(e => e.data().name))
+            setList(snapshot.docs.map(e => e.data()))
         })
     }, []);
 
@@ -144,7 +145,7 @@ export default function Page_custom() {
             </div>
             <div className="recent_wrapper">
                 <div className="title med" style={{ textDecoration: "underline" }}>10 Recent Customs</div>
-                <div className="recent_content">{list.map((e, index) => <div className="title med" key={index}>{`"${e}"`}</div>)}</div>
+                <div className="recent_content">{list.map((e, index) => <div className="title med" key={index} title={e.query}>{`"${e.name}"`}</div>)}</div>
             </div>
             <Links />
         </div>
