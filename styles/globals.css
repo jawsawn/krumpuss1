@@ -37,6 +37,8 @@
     align-items: center;
     flex-direction: column;
     gap: 1rem;
+    width: max-content;
+    max-width: 100%;
 }
 
 .generated_wrapper,
@@ -77,7 +79,7 @@
     .generated_wrapper,
     .recent_wrapper,
     .links_wrapper {
-        width: auto;
+        width: 100%;
         padding: auto;
     }
 
