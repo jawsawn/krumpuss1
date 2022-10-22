@@ -1,11 +1,23 @@
 
-import { MAX_VALUE_MILLIS } from "@firebase/util";
 import { useEffect, useRef, useState } from "react";
 import Links from "../components/links"
+import { db } from "../firebase";
+import { collection, addDoc, getDocs, doc, query, orderBy, deleteDoc, limit, getDoc, onSnapshot } from "firebase/firestore";
 
 
 export default function Page_custom() {
+    const DB = collection(db, "customDB");
+    //Create
+    async function addToDB() {
+        const docRef = await addDoc(DB,
+            {
+                name: output.slice(1),
+                timestamp: Date.now()
+            })
+    }
+
     const [input, setInput] = useState("");
+    const [list, setList] = useState([]);
     const [output, setOutput] = useState("Enter Text To Generate");
 
     function rand(input) {
@@ -104,21 +116,36 @@ export default function Page_custom() {
         setOutput(parsed);
     }
 
+    //onLoad
+    useEffect(() => {
+        //Read
+        const q = query(DB, orderBy("timestamp", "desc"), limit(10));
+        onSnapshot(q, (snapshot) => {
+            setList(snapshot.docs.map(e => e.data().name))
+        })
+    }, []);
+
     return (
         <div className="page">
             <div className="generated_wrapper">
                 <div className="title">{output}</div>
                 <form className="recent_wrapper form" onSubmit={handleSubmit}>
                     <input type="text" name="name" spellCheck="false" placeholder="enter text" onChange={handleChange} />
-                    
                     <button type="submit">Submit</button>
+                    <button type="button" onClick={addToDB}>Save</button>
                 </form>
+                
             </div>
             <div className="recent_wrapper maxsized">
                 <div className="title med break">
                     Create your custom sentence<br />
                     Available keywords: "NOUN" "VERB" "ADJ" "ADV" "RAN" "CELEB: name" "BOY" "GIRL" "NEUTRAL"
-                </div></div>
+                </div>
+            </div>
+            <div className="recent_wrapper">
+                <div className="title med" style={{ textDecoration: "underline" }}>10 Recent Customs</div>
+                <div className="recent_content">{list.map((e, index) => <div className="title med" key={index}>{`"${e}"`}</div>)}</div>
+            </div>
             <Links />
         </div>
     )
